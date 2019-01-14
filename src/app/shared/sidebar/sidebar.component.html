@@ -1,0 +1,28 @@
+<nav id="sidebar">
+  <div class="sidebar-header">
+    <h3>GST</h3>
+  </div>
+
+  <ul class="list-unstyled components">
+    <!-- First level menu -->
+    <li *ngFor="let menuItem of menuItems;  let i = index" [routerLinkActive]="menuItem.submenu.length != 0 ? '' : 'active'"
+      [routerLinkActiveOptions]="{exact: true}">
+      <a [routerLink]="[menuItem.path]" *ngIf="menuItem.submenu.length === 0; else dropDownBlock">
+          <span class="menu-title">{{menuItem.title}}</span>
+      </a>
+      <ng-template #dropDownBlock>
+        <a href="#drop_down_{{i}}" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+          <span class="menu-title">{{menuItem.title}}</span>
+        </a>
+      </ng-template>
+      <!-- Second level menu -->
+      <ul class="collapse list-unstyled" id="drop_down_{{i}}" *ngIf="menuItem.submenu.length > 0">
+        <li *ngFor="let menuSubItem of menuItem.submenu" [routerLinkActive]="menuSubItem.submenu.length > 0 ? '' : 'active'">
+          <a [routerLink]="[menuSubItem.path]">
+              <span class="menu-title">{{menuSubItem.title}}</span>
+          </a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>

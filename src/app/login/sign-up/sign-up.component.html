@@ -1,0 +1,155 @@
+<div class="container">
+  <div class="row align-items-center h-100 mt-5">
+    <div class="col-md-8 mx-auto">
+      <div class="gst-card p-4">
+        <div class="gst-card-body">
+          <div class="gst-form-wrapper">
+            <h4 class="mb-4">Sign Up</h4>
+            <form [formGroup]="signUpForm" (ngSubmit)="submitSignUpForm()">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <input type="text" formControlName="firstname" required class="form-control" id="name" name="firstname" placeholder="First Name">
+                    <div *ngIf="signUpFormControls.firstname.invalid && 
+                              (signUpFormControls.firstname.dirty || 
+                                signUpFormControls.firstname.touched)" class="text-danger small">
+                      <div *ngIf="signUpFormControls.firstname.errors.required">
+                        Firstname is required.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <input type="text" formControlName="lastname" reuired class="form-control" id="lastname" name="lastname" placeholder="Last Name">
+                    <div *ngIf="signUpFormControls.lastname.invalid && 
+                              (signUpFormControls.lastname.dirty || 
+                                signUpFormControls.lastname.touched)" class="text-danger small">
+                      <div *ngIf="signUpFormControls.lastname.errors.required">
+                        Lastname is required.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <input type="text" formControlName="city" reuired class="form-control" id="city" name="city" placeholder="City">
+                    <div *ngIf="signUpFormControls.city.invalid && 
+                              (signUpFormControls.city.dirty || 
+                                signUpFormControls.city.touched)" class="text-danger small">
+                      <div *ngIf="signUpFormControls.city.errors.required">
+                        Lastname is required.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <select formControlName="state" class="form-control" id="state" required>
+                      <option value="undefined" disabled>Select State</option>
+                      <option value="Andhra Pradesh">Andhra Pradesh</option>
+                      <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                      <option value="Assam">Assam</option>
+                      <option value="Bihar">Bihar</option>
+                      <option value="Chhattisgarh">Chhattisgarh</option>
+                      <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                      <option value="Goa">Goa</option>
+                      <option value="Gujarat">Gujarat</option>
+                      <option value="Haryana">Haryana</option>
+                      <option value="Himachal Pradesh">Himachal Pradesh</option>
+                      <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                      <option value="Jharkhand">Jharkhand</option>
+                      <option value="Karnataka">Karnataka</option>
+                      <option value="Kerala">Kerala</option>
+                      <option value="Madhya Pradesh">Madhya Pradesh</option>
+                      <option value="Maharashtra">Maharashtra</option>
+                      <option value="Manipur">Manipur</option>
+                      <option value="Meghalaya">Meghalaya</option>
+                      <option value="Mizoram">Mizoram</option>
+                      <option value="Nagaland">Nagaland</option>
+                      <option value="Odisha">Odisha</option>
+                      <option value="Punjab">Punjab</option>
+                      <option value="Rajasthan">Rajasthan</option>
+                      <option value="Sikkim">Sikkim</option>
+                      <option value="Tamil Nadu">Tamil Nadu</option>
+                      <option value="Telangana">Telangana</option>
+                      <option value="Tripura">Tripura</option>
+                      <option value="Uttar Pradesh">Uttar Pradesh</option>
+                      <option value="Uttarakhand">Uttarakhand</option>
+                      <option value="West Bengal">West Bengal</option>
+                      <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                      <option value="Chandigarh">Chandigarh</option>
+                      <option value="Dadar and Nagar Haveli">Dadar and Nagar Haveli</option>
+                      <option value="Daman and Diu">Daman and Diu</option>
+                      <option value="Delhi">Delhi</option>
+                      <option value="Lakshadweep">Lakshadweep</option>
+                      <option value="Puducherry">Puducherry</option>
+                    </select>
+                    <div *ngIf="signUpFormControls.state.hasError('invalidSelectedOption') && (signUpFormControls.state.dirty || signUpFormControls.state.touched)"
+                      class="text-danger small">
+                      State is required.
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <input type="email" formControlName="email" reuired class="form-control" id="email" name="email" placeholder="Email">
+                    <div *ngIf="signUpFormControls.email.invalid && 
+                              (signUpFormControls.email.dirty || 
+                                signUpFormControls.email.touched)" class="text-danger small">
+                      <div *ngIf="signUpFormControls.email.errors.required">
+                        Email is required.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <input type="password" formControlName="password" reuired class="form-control" id="password" name="password" placeholder="Password">
+                    <div *ngIf="signUpFormControls.password.invalid && 
+                              (signUpFormControls.password.dirty || 
+                                signUpFormControls.password.touched)" class="text-danger small">
+                      <div *ngIf="signUpFormControls.password.errors.required">
+                        Password is required.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <input type="text" formControlName="tradename" reuired class="form-control" id="tradename" name="tradename" placeholder="Trade Name">
+                    <div *ngIf="signUpFormControls.tradename.invalid && 
+                              (signUpFormControls.tradename.dirty || 
+                                signUpFormControls.tradename.touched)" class="text-danger small">
+                      <div *ngIf="signUpFormControls.tradename.errors.required">
+                        Tradename is required.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-4">
+                  <button type="submit" [disabled]="!signUpForm.valid" class="btn btn-primary btn-block">Create account</button>
+                </div>
+              </div>
+            </form>
+            <div class="mt-2">
+              <p><a routerLink="/login" class="text-primary"><small><span> Sign in to an existing account </span></small></a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
